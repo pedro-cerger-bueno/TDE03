@@ -70,7 +70,7 @@ public class Merge {
             this.iteracoes = iteracoes;
         }
 
-        @Override
+       
         public String toString() {
             return String.format("Tempo: %d ms, Trocas: %d, Iterações: %d",
                     tempo_total, trocas, iteracoes);
