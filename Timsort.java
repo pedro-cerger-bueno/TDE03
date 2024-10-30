@@ -14,7 +14,7 @@ public class Timsort {
         long trocas = 0;       
         long iteracoes = 0;  
     }
-    static final int min_run = 24;
+    static final int min_array = 32;
 
     public static void insert_sort(int[] array, int esquerda, int direita, Contadores contadores) {
         for (int i = esquerda + 1; i <= direita; i++) {
@@ -66,11 +66,11 @@ public class Timsort {
     }
 
     public static void timsort(int[] array, int n, Contadores contadores) {
-        for (int i = 0; i < n; i += min_run) {
-            int fim = (i + min_run - 1 < n - 1) ? i + min_run - 1 : n - 1;
+        for (int i = 0; i < n; i += min_array) {
+            int fim = (i + min_array - 1 < n - 1) ? i + min_array - 1 : n - 1;
             insert_sort(array, i, fim, contadores);
         }
-        for (int tamanho = min_run; tamanho < n; tamanho = 2 * tamanho) {
+        for (int tamanho = min_array; tamanho < n; tamanho = 2 * tamanho) {
             for (int esquerda = 0; esquerda < n; esquerda += 2 * tamanho) {
                 int meio = esquerda + tamanho - 1;
                 int direita = (esquerda + 2 * tamanho - 1 < n - 1) ? esquerda + 2 * tamanho - 1 : n - 1;
